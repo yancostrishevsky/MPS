@@ -30,7 +30,7 @@ jobs:
 
       - name: Convert Notebook to PDF
         run: |
-          jupyter nbconvert --to pdf notebook.ipynb
+          jupyter nbconvert --to pdf --execute notebook.ipynb
 
       - name: Upload PDF as Artifact
         uses: actions/upload-artifact@v4
