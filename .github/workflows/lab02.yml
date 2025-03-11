@@ -28,7 +28,7 @@ jobs:
           jupyter nbconvert --to pdf notebook.ipynb
 
       - name: Upload PDF as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: converted-notebook
           path: notebook.pdf
