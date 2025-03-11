@@ -27,7 +27,7 @@ jobs:
 
       - name: Install Python Dependencies
         run: |
-          pip install nbconvert notebook matplotlib pint scipy pandas numpy
+          pip install nbconvert notebook matplotlib pint scipy pandas numpy ipykernel
 
       - name: Convert Notebook to PDF
         run: |
