@@ -3,7 +3,7 @@ name: Convert Jupyter Notebook to PDF
 on:
   push:
     branches:
-      - main  # 
+      - main  
   pull_request:
 
 jobs:
@@ -12,16 +12,22 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set Up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.9"
 
-      - name: Install Dependencies
+      - name: Install System Dependencies
         run: |
-          pip install nbconvert 
+          sudo apt-get update
+          sudo apt-get install -y texlive-xetex texlive-fonts-recommended texlive-latex-extra pandoc
+
+      - name: Install Python Dependencies
+        run: |
+          pip install nbconvert notebook
+
       - name: Convert Notebook to PDF
         run: |
           jupyter nbconvert --to pdf notebook.ipynb
@@ -31,3 +37,4 @@ jobs:
         with:
           name: converted-notebook
           path: notebook.pdf
+          compression-level: 0
