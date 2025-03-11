@@ -21,8 +21,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install nbconvert notebook pandoc texlive-xetex texlive-fonts-recommended texlive-latex-extra
-
+          pip install nbconvert 
       - name: Convert Notebook to PDF
         run: |
           jupyter nbconvert --to pdf notebook.ipynb
